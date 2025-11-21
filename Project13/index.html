@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic User Input with JSON</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-box {
+            border: 1px solid black;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        input, select, textarea {
+            padding: 8px;
+            margin: 5px 0;
+            width: 300px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+        #result {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            min-height: 50px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .success {
+            background-color: lightgreen;
+        }
+        .loading {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Registration Form</h1>
+    
+    <div class="form-box">
+        <h3>Enter Your Details</h3>
+        
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        
+        <label>Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        
+        <label>Country:</label>
+        <select id="country">
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="India">India</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+        </select>
+        
+        <label>Interests:</label>
+        <input type="text" id="interests" placeholder="e.g. Reading, Gaming, Sports">
+        
+        <label>Comments:</label>
+        <textarea id="comments" rows="3" placeholder="Any additional comments..."></textarea>
+        
+        <br>
+        <button onclick="sendData()">Submit Data</button>
+        <button onclick="clearForm()">Clear Form</button>
+    </div>
+
+    <div id="result">Fill the form and click Submit to send data...</div>
+
+    <script>
+        function sendData() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var age = document.getElementById('age').value;
+            var country = document.getElementById('country').value;
+            var interests = document.getElementById('interests').value;
+            var comments = document.getElementById('comments').value;
+
+            if (!name || !email || !age || !country) {
+                alert('Please fill all required fields!');
+                return;
+            }
+
+            var resultDiv = document.getElementById('result');
+            resultDiv.className = 'loading';
+            resultDiv.innerHTML = 'Sending data to server...';
+
+
+            var userData = {
+                name: name,
+                email: email,
+                age: parseInt(age),
+                country: country,
+                interests: interests.split(',').map(function(item) {
+                    return item.trim();
+                }),
+                comments: comments,
+                submittedAt: new Date().toISOString()
+            };
+
+    
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onload = function() {
+                if (xhr.status == 201) {
+                    var response = JSON.parse(xhr.responseText);
+                    displaySuccess(userData, response);
+                } else {
+                    resultDiv.innerHTML = 'Error: ' + xhr.status;
+                }
+            };
+            
+            xhr.onerror = function() {
+                resultDiv.innerHTML = 'Network Error! Could not send data.';
+            };
+            
+            // Convert to JSON and send
+            var jsonData = JSON.stringify(userData);
+            xhr.send(jsonData);
+        }
+
+        function displaySuccess(sentData, serverResponse) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.className = 'success';
+            
+            var html = '<h3>✓ Data Sent Successfully!</h3>';
+            html += '<p><b>Data sent to server:</b></p>';
+            html += '<b>Name:</b> ' + sentData.name + '<br>';
+            html += '<b>Email:</b> ' + sentData.email + '<br>';
+            html += '<b>Age:</b> ' + sentData.age + '<br>';
+            html += '<b>Country:</b> ' + sentData.country + '<br>';
+            html += '<b>Interests:</b> ' + sentData.interests.join(', ') + '<br>';
+            html += '<b>Comments:</b> ' + sentData.comments + '<br>';
+            html += '<b>Submitted At:</b> ' + new Date(sentData.submittedAt).toLocaleString() + '<br>';
+            html += '<br><b>Server Response ID:</b> ' + serverResponse.id;
+            
+            resultDiv.innerHTML = html;
+        }
+
+        function clearForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('country').value = '';
+            document.getElementById('interests').value = '';
+            document.getElementById('comments').value = '';
+            
+            var resultDiv = document.getElementById('result');
+            resultDiv.className = '';
+            resultDiv.innerHTML = 'Form cleared. Fill the form and click Submit to send data...';
+        }
+    </script>
+</body>
+</html>

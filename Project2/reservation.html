@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Details</title>
+</head>
+<body style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+<form>
+<table width="900px" align="center">
+    <th align="left" style="font-size: xx-large;">RESERVATION DETAILS</th><tr></tr>
+    <tr><td><br>
+        <table align="center">
+            <tr><th align="left">Contact Person</th></tr>
+            <tr>
+                <td width="35%" align="left"><input type="text" id="title" name="title" placeholder="" size="33%"></td>
+                <td width="35%" align="center"><input type="text" id="fname" name="fname" size="33%"></td>
+                <td width="35%" align="right"><input type="text" id="sname" name="sname" size="33%"></td>
+            </tr>
+            <tr>
+                <td><label for="title" style="font-size:13px">Title</label></td>
+                <td><label for="fname" style="font-size:13px">First Name</label></td>
+                <td><label for="sname" style="font-size:13px">Last Name</label></td>
+            </tr>
+    </table><br></td></tr>
+    <tr><td>
+    <table>
+        <tr><th align="left">E-mail</th><th align="left" colspan="2">Phone Number</th></tr>
+        <tr></tr>
+        <tr>
+            <td width="63%"><input type="text" id="email" name="email" placeholder="ex:myname@example.com" size="51%"></td>
+            <td width="15%"><input type="text" id="areacode" name="areacode" size="13%"></td>
+            <td><input type="text" id="phone" name="phone" size="33%"></td>
+        </tr>
+        <tr>
+            <td><label for="email"></label></td>
+            <td><label for="areacode" style="font-size:13px">Area Code</label></td>
+            <td><label for="phone" style="font-size:13px">Phone Number</label></td>
+        </tr>
+    </table></td></tr>
+    <tr><td>
+    <table><br>
+        <tr><th align="left">Address</th></tr>
+        <tr><td colspan="3"><input type="text" id="street address" name="street adress" size="105%"></td></tr>
+        <tr><td><label for="street address" style="font-size:13px">Street Address</label></td></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+        <tr><td colspan="3"><input type="text"  id="street address 2" name="street adress 2" size="105%"></input></td></tr>
+        <tr><td><label for="street address 2" style="font-size:13px">Street Address Line 2</label></td></tr><tr></tr><tr></tr><tr></tr>
+        <tr><td width="54%"><input type="text" id="city" name="city" size="49%"></td>
+            <td><input type="text"  id="state" name="state/province" size="49%"></input></td>
+        </tr>
+        <tr><td><label for="city" style="font-size:13px">City</label></td>
+            <td><label for="state" style="font-size:13px">State/Province</label></td>
+        </tr>
+    </table></td></tr>
+    <tr><td>
+    <table>
+        <tr><td width="51%"><input type="text" id="zip" name="zip" size="49%"></td>
+            <td width="40%"><select id="country" name="country" style="width: 115%;">
+                <option value="select">Please Select</option>
+                <option value="Ind">India</option>
+                <option value="isr">Israel</option>
+                <option value="usa">United States of America</option>
+                <option value="aus">Australia</option>
+                <option value="uk">United Kingdim</option>
+                <option value="brz">Brazil</option>
+                <option value="chn">China</option>
+                <option value="itl">Italy</option>
+                <option value="sa">South Africa</option>
+                <option value="can">Canada</option>
+                <option value="nz">New Zealand</option>
+                <option value="arg">Argentina</option>                                                
+            </select></td>
+        </tr>
+        <tr><td><label for="zip" style="font-size:12px">Postal / Zip code</label></td>
+            <td><label for="country" style="font-size:12px">Country</label></td>
+        </tr>
+    </table></td></tr>
+    <tr><td>
+    <table width="780px"><br>
+        <tr><th align="left">International or Domestic Flight?</th></tr>
+        <tr><td><input type="radio" name="Intl" id="Intl"> International</input></td></tr>
+        <tr><td><input type="radio" name="dom" id="dom"> Domestic</input></td></tr>
+    </table></td></tr>
+    <tr><td>
+    <table><br>
+        <th colspan="5" align ="left">Departure Date and Time</th>
+        <tr><td><input type="text" id="mon" name="mon" placeholder="07" style="width: 100px;"></td>
+            <td><input type="text"  id="day" name="day" placeholder="21" style="width: 100px;"></input></td>
+            <td><input type="text"  id="year" name="year" placeholder="2025" style="width: 100px;"></input></td>
+            <td><input type="text" id="time" name="time" placeholder="03:02" style="width: 100px;"></td>
+            <td><select id="ampm" name="ampm" style="width: 50px;">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>></select></td>
+        </tr>
+        <tr><td><label for="mon" style="font-size:13px; ">Month</label></td>
+            <td><label for="day" style="font-size:13px;">Day</label></td>
+            <td><label for="year" style="font-size:13px;">Year</label></td>
+            <td><label for="time" style="font-size:13px">Hours Minutes</label></td>
+        </tr>
+    </table>
+    </td></tr>
+    <tr><td>
+    <table><br>
+        <th colspan="5" align ="left">Return Date and Time</th>
+        <tr><td><input type="text" id="mon" name="mon" placeholder="08" style="width: 100px;"></td>
+            <td><input type="text"  id="day" name="day" placeholder="21" style="width: 100px;"></input></td>
+            <td><input type="text"  id="year" name="year" placeholder="2025" style="width: 100px;"></input></td>
+            <td><input type="text" id="time" name="time" placeholder="03:02" style="width: 100px;"></td>
+            <td><select id="ampm" name="ampm" style="width: 52px;">
+                <option value="PM">PM</option>
+                <option value="AM">AM</option>></select></td>
+        </tr>
+        <tr><td><label for="mon" style="font-size:13px;">Month</label></td>
+            <td><label for="day" style="font-size:13px;">Day</label></td>
+            <td><label for="year" style="font-size:13px;">Year</label></td>
+            <td><label for="time" style="font-size:13px ">Hours Minutes</label></td>
+        </tr>
+    </table>
+    </td></tr>
+    <tr><td>
+    <table><br>
+        <tr><th align="left"><label for="city">Departing From</label></th>
+            <th align="left"><label for="depart">City</label></th>
+        </tr>
+        <tr><td width="68%"><select id="depart" name="depart" style="width:92.5%;">
+                <option value="Select">Please Select</option>
+                <option value="GOI">GOI(Dabolim)</option>
+                <option value="GOX">GOX(Mopa)</option>
+                </select></td>
+            <td style="width: 50%;"><input type="text" id="city" name="city" size="48%"></td>
+        </tr>
+    </table></td></tr>
+    <tr><td>
+    <table><br>
+        <tr><th align="left"><label for="city">Destination</label></th>
+            <th align="left"><label for="destination">City</label></th>
+        </tr>
+        <tr><td width="68%"><select id="destination" name="destination" style="width:92.5%;">
+                <option value="Select">Please Select</option>
+                <option value="usa">United States of America</option>
+                <option value="aus">Australia</option>
+                <option value="uk">United Kingdim</option>
+                <option value="brz">Brazil</option>
+                <option value="chn">China</option>
+                <option value="itl">Italy</option>
+                <option value="sa">South Africa</option>
+                <option value="can">Canada</option>
+                <option value="nz">New Zealand</option>
+                <option value="arg">Argentina</option>                                                
+            </select></td>
+            <td style="width: 50%;"><input type="text" id="city" name="city" size="48%"></td>
+        </tr>
+    </table></td></tr>
+    <tr><td>
+    <table><br>
+        <tr><th align="left"><label for="airline">Airline</label></th>
+            <th align="left"><label for="fare">Fare</label></th>
+        </tr>
+        <tr><td width="52%"><select id="airline" name="airline" style="width:92.5%;">
+                <option value="Select">Please Select</option>
+                <option value="Ai">Air India</option>
+                <option value="Ind">Indigo</option>
+                <option value="Sj">Spicejet</option>
+                </select></td>
+                <td width="100%"><select id="fare" name="fare" style="width:100%;">
+                <option value="select">Please Select</option>
+                <option value="two">Round trip</option>
+                <option value="one">One way</option>
+                <option value="eco">Economy class</option>
+                <option value="peco">Premium Economy class </option>  
+                <option value="biz">Business class</option>
+                <option value="fc">First class</option>
+                </select></td>
+        </tr>
+    </table></td></tr>
+    <tr><td><table width="770px"><br><br>
+    <tr><td align="left"><button style=" width: 120px;"><a href="index.html">Back</a></button></td>
+    <td align="right"><input type="submit" value="Submit" style=" width: 120px;"></td></tr>
+    <tr><td align="center"><audio controls><source src="thank-you.mp3"></source></audio></td></tr>
+    </table></td></tr>
+</table>
+<br><br><br><br><br><br>
+</form>
+</body>
+</html>

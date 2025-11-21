@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Location</title>
+          <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Registration Portal</div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Registration Form</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">Page 2 of 3</div>
+            <form id="page2Form">
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" required>
+                    <div class="error-message" id="addressError">Address must contain at least 2 words</div>
+                </div>
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <div class="pincode-container">
+                        <input type="text" id="pincodePrefix" class="pincode-prefix" value="403" readonly title="Pincode prefix (first 3 digits)" placeholder="403" aria-label="Pincode prefix (first 3 digits)">
+                        <input type="text" id="pincodeSuffix" class="pincode-suffix" maxlength="3" placeholder="Enter last 3 digits" required>
+                    </div>
+                    <div class="error-message" id="pincodeError">Please enter a valid 3-digit pincode suffix</div>
+                </div>
+                <div class="form-group">
+                    <label for="userlocation">Location</label>
+                    <input id="userlocation" readonly placeholder="Location At The Entered Pincode">
+                </div>
+                <div class="form-group">
+                    <label for="userdistrict">District</label>
+                    <input id="userdistrict" readonly placeholder="District At The Entered Pincode">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn-back" id="backBtn">Back</button>
+                    <button type="button" class="btn-next" id="nextBtn" disabled>Next</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+               Registration Portal.
+            </div>
+        </div>
+    </footer>
+ <script src="script2.js"></script>
+</body>
+</html>

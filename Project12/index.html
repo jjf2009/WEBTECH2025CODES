@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Error Handling</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .test {
+            border: 1px solid black;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .result {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            min-height: 40px;
+            background-color: #f0f0f0;
+        }
+        .success {
+            background-color: lightgreen;
+        }
+        .error {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX Error Handling</h1>
+
+    <div class="test">
+        <h3>Test 1: Successful Request</h3>
+        <button onclick="test1()">Run Test</button>
+        <div id="result1" class="result">Click button to test...</div>
+    </div>
+
+    <div class="test">
+        <h3>Test 2: 404 Error (Not Found)</h3>
+        <button onclick="test2()">Run Test</button>
+        <div id="result2" class="result">Click button to test...</div>
+    </div>
+
+    <div class="test">
+        <h3>Test 3: Network Error</h3>
+        <button onclick="test3()">Run Test</button>
+        <div id="result3" class="result">Click button to test...</div>
+    </div>
+
+    <div class="test">
+        <h3>Test 4: Timeout Error</h3>
+        <button onclick="test4()">Run Test</button>
+        <div id="result4" class="result">Click button to test...</div>
+    </div>
+
+    <div class="test">
+        <h3>Test 5: Server Error (500)</h3>
+        <button onclick="test5()">Run Test</button>
+        <div id="result5" class="result">Click button to test...</div>
+    </div>
+
+    <script>
+        function test1() {
+            document.getElementById('result1').innerHTML = 'Loading...';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/users/1', true);
+            
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    document.getElementById('result1').className = 'result success';
+                    document.getElementById('result1').innerHTML = 
+                        'SUCCESS!<br>Name: ' + data.name + '<br>Status: ' + xhr.status;
+                }
+            };
+            
+            xhr.onerror = function() {
+                document.getElementById('result1').className = 'result error';
+                document.getElementById('result1').innerHTML = 'ERROR: Network problem!';
+            };
+            
+            xhr.send();
+        }
+
+        function test2() {
+            document.getElementById('result2').innerHTML = 'Loading...';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/users/99999', true);
+            
+            xhr.onload = function() {
+                if (xhr.status == 404) {
+                    document.getElementById('result2').className = 'result error';
+                    document.getElementById('result2').innerHTML = 
+                        'ERROR 404!<br>Page not found<br>Status: ' + xhr.status;
+                }
+            };
+            
+            xhr.onerror = function() {
+                document.getElementById('result2').className = 'result error';
+                document.getElementById('result2').innerHTML = 'ERROR: Network problem!';
+            };
+            
+            xhr.send();
+        }
+
+        function test3() {
+            document.getElementById('result3').innerHTML = 'Loading...';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://invalid-url-12345.com/data', true);
+            
+            
+            xhr.onload = function() {
+                document.getElementById('result3').className = 'result success';
+                document.getElementById('result3').innerHTML = 'SUCCESS!';
+            };
+            
+            xhr.onerror = function() {
+                document.getElementById('result3').className = 'result error';
+                document.getElementById('result3').innerHTML = 'NETWORK ERROR!<br>Cannot connect to server<br>Check internet connection';
+            };
+            
+            
+            xhr.send();
+        }
+
+        function test4() {
+            document.getElementById('result4').innerHTML = 'Loading...';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+            xhr.timeout = 1; // Very short timeout
+            
+            xhr.onload = function() {
+                document.getElementById('result4').className = 'result success';
+                document.getElementById('result4').innerHTML = 'SUCCESS!';
+            };
+            
+            xhr.ontimeout = function() {
+                document.getElementById('result4').className = 'result error';
+                document.getElementById('result4').innerHTML = 
+                    'TIMEOUT ERROR!<br>Server took too long to respond<br>Timeout: ' + xhr.timeout + 'ms';
+            };
+            
+            xhr.onerror = function() {
+                document.getElementById('result4').className = 'result error';
+                document.getElementById('result4').innerHTML = 'ERROR: Network problem!';
+            };
+            
+            xhr.send();
+        }
+
+        function test5() {
+            document.getElementById('result5').innerHTML = 'Loading...';
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://httpbin.org/status/500', true);
+            
+            xhr.onload = function() {
+                if (xhr.status == 500) {
+                    document.getElementById('result5').className = 'result error';
+                    document.getElementById('result5').innerHTML ='SERVER ERROR 500!<br>Internal Server Error<br>Status: ' + xhr.status;
+                } else {
+                    document.getElementById('result5').className = 'result success';
+                    document.getElementById('result5').innerHTML = 'SUCCESS!';
+                }
+            };
+            
+            xhr.onerror = function() {
+                document.getElementById('result5').className = 'result error';
+                document.getElementById('result5').innerHTML = 'ERROR: Network problem!';
+            };
+            
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

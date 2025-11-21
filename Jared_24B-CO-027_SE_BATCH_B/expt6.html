@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><body><h2>User Registration Form</h2>
+<form action="expt6.php" method="POST">
+<label for="name">Full Name:</label><br>
+<input type="text" id="name" name="name" required><br><br>
+<label for="email">Email Address:</label><br>
+<input type="email" id="email" name="email" required><br><br>
+<label for="age">Age:</label><br>
+<input type="number" id="age" name="age" required><br><br>
+<label for="phone">Phone Number:</label><br>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+<label for="year">Year of Study:</label><br>
+<select id="year" name="year" required>
+<option value="">Select Year</option>
+<option value="1st Year">1st Year</option>
+<option value="2nd Year">2nd Year</option>
+<option value="3rd Year">3rd Year</option>
+<option value="4th Year">4th Year</option> </select><br><br>
+<label for="dept">Department:</label><br>
+<select id="dept" name="dept" required>
+<option value="">Select Department</option>
+<option value="CSE">Computer Science</option>
+<option value="ECE">Electronics & Communication</option>
+<option value="MECH">Mechanical</option>

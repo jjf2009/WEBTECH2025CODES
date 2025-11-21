@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Personal Information</title>
+      <link rel="stylesheet" href="style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Registration Portal</div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Registration Form</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">Page 1 of 3</div>
+            <form id="page1Form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                    <div class="error-message" id="nameError">Name must be at least 2 alphabetic characters</div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" required>
+                    <div class="error-message" id="lastNameError">Last name must be at least 2 alphabetic characters</div>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Birth Date</label>
+                    <input type="date" id="birthDate" required>
+                    <div class="error-message" id="birthDateError">You must be between 18 and 60 years old</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" id="password" required>
+                    <div class="error-message" id="passwordError">Password must be 8+ characters with 2 uppercase, 2 lowercase, and 2 special characters</div>
+                </div>
+                <div class="button-group">
+                    <button type="button" id="nextBtn" disabled>Next</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                 Registration Portal
+            </div>
+        </div>
+    </footer>
+ <script src="script1.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <span class="logo">⚡</span>
+  <h1>Simple Calculator</h1>
+</header>
+<div class="scroll-text">
+  <p> Simple calculator website</p>
+</div>
+  <main>
+    <div class="calculator">
+      <div class="card">
+        <label for="datatype">Select Data Type: </label>
+        <select id="datatype">
+          <option value="number">Number</option>
+          <option value="string">String</option>
+        </select>
+      </div>
+      <div class="box">
+      <div class="card">
+        <input type="text" id="val1" placeholder="Value 1">
+      </div>
+      <div class="card">
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+          <option value="pow">pow</option>
+        </select>
+        </div>
+        <div class="card">
+        <input type="text" id="val2" placeholder="Value 2">
+      </div>
+      </div>
+      <div class="card">
+        <label for="datatype">Result: </label>
+        <input type="text" id="result" placeholder="Result" readonly>
+        <button onclick="calculate()">Calculate</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <span class="footer-text">♥️</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

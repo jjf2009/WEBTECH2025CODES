@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Contact & Payment</title>
+          <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Registration Portal</div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Registration Form</h1>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">Page 3 of 3</div>
+
+            <form id="page3Form">
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="text" id="mobile" maxlength="10" required>
+                    <div class="error-message" id="mobileError">Mobile number must be 10 digits starting with 9, 8, 7, or 6</div>
+                </div>
+                <div class="form-group">
+                    <label for="creditCard">Credit Card Number</label>
+                    <input type="text" id="creditCard" maxlength="19" required>
+                    <div class="error-message" id="cardError">Credit card must be 16 digits</div>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date (MM/YY)</label>
+                    <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                    <div class="error-message" id="expiryError">Enter valid expiry date (MM/YY) - not expired and within 6 years</div>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                    <div class="error-message" id="cvvError">CVV must be 3 or 4 digits</div>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn-back" id="backBtn">Back</button>
+                    <button type="button" class="btn-preview" id="previewBtn" disabled>Preview</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                2024 Registration Portal
+            </div>
+        </div>
+    </footer>
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Review Your Information</h2>
+            </div>
+            <div class="preview-section">
+                <div class="preview-item">
+                    <span class="preview-label">Name:</span>
+                    <span class="preview-value" id="previewName"></span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Email:</span>
+                    <span class="preview-value" id="previewEmail"></span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Password:</span>
+                    <span class="preview-value" id="previewPassword"></span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Date Of Birth:</span>
+                    <span class="preview-value" id="previewDOB"></span>
+                </div>
+            </div>
+            <div class="preview-section">
+                <div class="preview-item">
+                    <span class="preview-label">Address:</span>
+                    <span class="preview-value" id="previewAddress"></span>
+                </div>
+            </div>
+            <div class="preview-section">
+                <div class="preview-item">
+                    <span class="preview-label">Mobile:</span>
+                    <span class="preview-value" id="previewMobile"></span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Credit Card:</span>
+                    <span class="preview-value" id="previewCreditCard"></span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Expiry Date:</span>
+                    <span class="preview-value" id="previewExpiry"></span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">CVV:</span>
+                    <span class="preview-value" id="previewCVV"></span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="btn-edit" id="editBtn">Edit</button>
+                <button type="button" class="btn-submit" id="submitBtn">Submit</button>
+            </div>
+        </div>
+    </div>
+ <script src="script3.js"></script>
+</body>
+</html>

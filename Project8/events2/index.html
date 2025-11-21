@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Logger Demo</title>
+      <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="logo">📊</span>
+            <h1 class="header-title">EventLogger Pro</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#input-events">Input Events</a></li>
+            <li><a href="#mouse-events">Mouse Events</a></li>
+            <li><a href="#keyboard-events">Keyboard Events</a></li>
+        </ul>
+    </nav>
+    <section id="input-events" class="section">
+        <h2>Input Events</h2>
+        <div class="content">
+            <form id="demo-form" class="controls">
+                <div class="control-group">
+                    <label>Text Input</label>
+                    <input type="text" id="text-input" placeholder="Type something...">
+                </div>
+                <div class="control-group">
+                    <label>Email Input</label>
+                    <input type="email" id="email-input" placeholder="Enter email...">
+                </div>
+                <div class="control-group">
+                    <label>Select</label>
+                    <select id="select-input">
+                        <option value="">Choose an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Checkbox</label>
+                    <div>
+                        <input type="checkbox" id="checkbox-input">
+                        <span>I agree</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Radio Buttons</label>
+                    <div>
+                        <input type="radio" name="radio" value="yes"> Yes
+                        <input type="radio" name="radio" value="no"> No
+                    </div>
+                </div>
+                <div class="control-group" style="flex-direction: row; gap: 1rem;">
+                    <button type="submit">Submit Form</button>
+                    <button type="reset">Reset Form</button>
+                </div>
+            </form>
+            
+            <div class="logs">
+                <h3>Event Logs</h3>
+                <button class="clear-btn" onclick="clearLogs('input')">Clear</button>
+                <div id="input-logs"></div>
+            </div>
+        </div>
+    </section>
+    <section id="mouse-events" class="section">
+        <h2>Mouse Events</h2>
+        <div class="content">
+            <div class="controls">
+                <div class="mouse-area" id="mouse-area">
+                    <div>
+                        <h3>Mouse Area</h3>
+                        <p>Click, double-click, right-click, or move mouse here</p>
+                    </div>
+                </div>
+                <button id="hover-btn">Hover Over Me</button>
+            </div>
+            <div class="logs">
+                <h3>Event Logs</h3>
+                <button class="clear-btn" onclick="clearLogs('mouse')">Clear</button>
+                <div id="mouse-logs"></div>
+            </div>
+        </div>
+    </section>
+    <section id="keyboard-events" class="section">
+        <h2>Keyboard Events</h2>
+        <div class="content">
+            <div class="controls">
+                <div class="keyboard-area">
+                    <h3>Type Here</h3>
+                    <input type="text" class="keyboard-input" id="keyboard-input" 
+                           placeholder="Start typing...">
+                </div>
+            </div>
+            <div class="logs">
+                <h3>Event Logs</h3>
+                <button class="clear-btn" onclick="clearLogs('keyboard')">Clear</button>
+                <div id="keyboard-logs"></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p> 2024 EventLogger Pro - Interactive Event Demonstration Tool</p>
+        <p>Learn and explore JavaScript events in real-time</p>
+        <div class="footer-links">
+            <a href="#input-events">Input Events</a>
+            <a href="#mouse-events">Mouse Events</a>
+            <a href="#keyboard-events">Keyboard Events</a>
+        </div>
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>

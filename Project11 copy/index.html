@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Multiple JSON Objects</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .user {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin: 10px 5px;
+        }
+        #result {
+            border: 1px solid black;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Multiple Users</h1>
+
+    <div id="users">
+        <div class="user">
+            <b>User 1:</b><br>
+            Name: <input type="text" class="name" value="Alice"><br>
+            Email: <input type="text" class="email" value="alice@test.com"><br>
+        </div>
+        <div class="user">
+            <b>User 2:</b><br>
+            Name: <input type="text" class="name" value="Bob"><br>
+            Email: <input type="text" class="email" value="bob@test.com"><br>
+        </div>
+        <div class="user">
+            <b>User 3:</b><br>
+            Name: <input type="text" class="name" value="Carol"><br>
+            Email: <input type="text" class="email" value="carol@test.com"><br>
+        </div>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+
+        function sendUsers() {
+            var users = [];
+            var userDivs = document.getElementsByClassName('user');
+            
+            for (var i = 0; i < userDivs.length; i++) {
+                var name = userDivs[i].getElementsByClassName('name')[0].value;
+                var email = userDivs[i].getElementsByClassName('email')[0].value;
+                
+                if (name && email) {
+                    users.push({
+                        name: name,
+                        email: email
+                    });
+                }
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onload = function() {
+                if (xhr.status == 201) {
+                    var result = 'Successfully sent ' + users.length + ' users!<br><br>';
+                    for (var i = 0; i < users.length; i++) {
+                        result += 'User ' + (i+1) + ': ' + users[i].name + ' - ' + users[i].email + '<br>';
+                    }
+                    document.getElementById('result').innerHTML = result;
+                }
+            };
+            
+            var data = JSON.stringify({users: users});
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>
