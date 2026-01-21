@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="style.css">
+    <title>Student Login</title>
+</head>
+<body>
+<div class="login-container">
+<h2 class="form-title">Student Login</h2>
+<form method="post" class="login-card" id="loginForm" novalidate>
+<label for="fullname" class="field">
+<span>Full Name:</span>
+<input type="text" id="fullname" name="fullname" required>
+
+</label>
+<label for="rollno" class="field">
+<span>Roll No:</span>
+<input type="text" id="rollno" name="rollno" required>
+</label>
+<label for="email" class="field">
+<span>Email ID:</span>
+<input type="email" id="email" name="email" required>
+</label>
+<label for="password" class="field">
+<span>Password:</span>
+<input type="password" id="password" name="password" required>
+</label>
+<label for="confirmpassword" class="field">
+<span>Comfirm Password:</span>
+<input type="password" id="confirmpassword" name="confirmpassword" required>
+</label>
+<input type="submit" value="Register" class="btn">
+
+</form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

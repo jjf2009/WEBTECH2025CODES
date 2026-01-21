@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #F7F9FC;
+    color:black;
+    line-height: 1.6;    
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;          /* full screen height */
+    background: #f0f2f5;
+}
+.login-card {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color:black;
+}
+
+
+.login-card .field{
+    margin-bottom:14px;
+    text-align: left;
+}
+
+.field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Stack label on top of input */
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Input inside field */
+.field input, 
+.field select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.field input:focus, 
+.field select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 4px rgba(0,123,255,0.3);
+}
+
+.btn{
+    display:inline-block;
+    padding: 8px 14px;
+    background-color: #093768;;
+    color:rgb(227, 227, 227);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size:14px;
+    transition:background 0.2s ease;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+   background: #0056b3;
+}
+
+.error-message {
+    color: #d93025;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.success-message {
+    margin-top: 15px;
+    color: #188038;
+    font-weight: 600;
+    text-align: center;
+}
